@@ -26,6 +26,19 @@ function ToDoList() {
         />
 
         <button onClick={addActivity}>Add</button>
+
+        <p>Here is your List:{")"}</p>
+
+        {listData != [] &&
+          listData.map((data, i) => {
+            return (
+              <>
+                <p>
+                  <div>{data}</div>
+                </p>
+              </>
+            );
+          })}
       </div>
     </>
   );
