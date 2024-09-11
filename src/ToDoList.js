@@ -14,6 +14,17 @@ function ToDoList() {
     });
   }
 
+  function removeActivity(i) {
+    const updatedList = listData.filter((elem, id) => {
+      return i != id;
+    });
+    setListData(updatedList);
+  }
+
+  function removeAll() {
+    setListData([]);
+  }
+
   return (
     <>
       <div classname="container">
@@ -36,9 +47,14 @@ function ToDoList() {
                 <p>
                   <div>{data}</div>
                 </p>
+                <div>
+                  <button onClick={() => removeActivity(i)}>remove(-)</button>
+                </div>
               </>
             );
           })}
+        <br />
+        {listData.length > 1 && <button onClick={removeAll}>remove all</button>}
       </div>
     </>
   );
